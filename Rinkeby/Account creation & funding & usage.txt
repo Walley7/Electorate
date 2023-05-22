@@ -1,0 +1,27 @@
+ACCOUNT CREATION:
+- Use an ethereum wallet to create a new account on Rinkeby.
+- MyEtherWallet:
+  * https://www.myetherwallet.com/
+  * Set the network in the top right corner dropdown to Rinkeyby (infura.io).
+  * Select New Wallet to the left.
+  * Enter a password, click Create New Wallet.
+  * Save the keystore somewhere then click Continue.
+  * You'll now be presented with the private key - save it somewhere.
+  * Click the Show Address button to proceed.
+  * Select Private Key from the options, and paste the private key from the previous step.
+  * You'll now be shown the address of the new account - save this somewhere as well.
+
+
+ACCOUNT FUNDING:
+- Rinkeby accounts can be funded for free on a daily basis from Faucet sites.
+- https://faucet.rinkeby.io/:
+  * This faucet requires that you make a social media post with the account's address as the contents.
+  * Then take the URL of the social media post and paste it in the faucet site - it will
+- http://www.rinkebyfaucet.com/:
+  * Does not require the social media post, but gives less ether each time.
+
+
+USING THE ACCOUNT AS THE SYSTEM ACCOUNT FOR ELECTORATE:
+The last argument of the ElectorateInstance constructor is the BlockchainKey for the system account.
+BlockchainKey takes two arguments - the public and private key. For the system account only the
+private key is needed, so you can set it as follows: new BlockchainKey("", [insert private key here])

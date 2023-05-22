@@ -1,0 +1,46 @@
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="voters">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Organisation">
+      <th mat-header-cell *matHeaderCellDef> OrganisationName </th>
+      <td mat-cell *matCellDef="let element"> {{element.organisationName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="select" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element" (click)="$event.stopPropagation()">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>insert_link</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="onRegisterVoter(element)">
+            <mat-icon>how_to_reg</mat-icon>
+            <span>Register Voter</span>
+          </button>        
+        </mat-menu>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<mat-toolbar  class="app-toolbar">
+  <mat-toolbar-row>
+    <span class="app-spacer"></span>    
+    <a mat-raised-button color="primary" class="app-icon" routerLink="/ballot" routerLinkActive="active">Back</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+

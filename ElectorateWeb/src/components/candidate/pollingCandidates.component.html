@@ -1,0 +1,42 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="candidates">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Ballot">
+      <th mat-header-cell *matHeaderCellDef> Ballot </th>
+      <td mat-cell *matCellDef="let element"> {{element.ballotName}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Organisation">
+      <th mat-header-cell *matHeaderCellDef> OrganisationName </th>
+      <td mat-cell *matCellDef="let element"> {{element.organisationName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef> Select </th>
+      <mat-radio-group [(ngModel)]="selectedCandidate">
+        <td mat-cell *matCellDef="let element">
+          <mat-radio-button [value]="element" ></mat-radio-button>
+        </td>
+      </mat-radio-group>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>
+
+<div class="fab-container">
+  <span>
+    <button mat-fab color="primary" (click)="onBack()"><mat-icon>arrow_back</mat-icon></button><span>&nbsp;</span>
+    <button mat-fab color="primary" (click)="onVote()"><mat-icon>how_to_vote</mat-icon></button>
+  </span>
+</div>

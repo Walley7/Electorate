@@ -1,0 +1,23 @@
+.example-container {
+ 
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.app-spacer {
+  flex: 1 1 auto;
+}
+
+
+.app-is-mobile .app-toolbar {
+  position: fixed; 
+  z-index: 2;
+}
+
+
+.app-icon {
+  padding: 0 14px;
+}

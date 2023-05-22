@@ -1,0 +1,4 @@
+- Allow changing entity settings, e.g. setting organisation.funding.
+- Make system funding settings and thresholds customisable.
+- Figure out appropriate funding amounts and thresholds.
+- Address the voter funding issue properly.

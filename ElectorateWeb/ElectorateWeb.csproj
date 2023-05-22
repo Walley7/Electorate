@@ -1,0 +1,55 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TypeScriptToolsVersion>2.8</TypeScriptToolsVersion>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <PostBuildEvent>ng build --aot</PostBuildEvent>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="src\components\ballot\frmBallot.component.html" />
+    <None Remove="src\components\ballot\frmBallot.component.ts" />
+    <None Remove="src\components\candidate\frmCandidate.component.html" />
+    <None Remove="src\components\candidate\frmCandidate.component.ts" />
+    <None Remove="src\components\organisation\frmOrganisation.component.html" />
+    <None Remove="src\components\organisation\frmOrganisation.component.ts" />
+    <None Remove="src\components\voter\frmVoter.component.html" />
+    <None Remove="src\components\voter\frmVoter.component.ts" />
+    <None Remove="src\models\vmModels.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="src\core\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
+    <PackageReference Include="Portable.BouncyCastle" Version="1.8.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ElectorateDataExt\ElectorateDataExt.csproj" />
+    <ProjectReference Include="..\Electorate\Electorate.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="src\components\ballot\frmBallot.component.html" />
+    <TypeScriptCompile Include="src\components\ballot\frmBallot.component.ts" />
+    <TypeScriptCompile Include="src\components\voter\frmVoter.component.html" />
+    <TypeScriptCompile Include="src\components\voter\frmVoter.component.ts" />
+    <TypeScriptCompile Include="src\components\candidate\frmCandidate.component.html" />
+    <TypeScriptCompile Include="src\components\candidate\frmCandidate.component.ts" />
+    <TypeScriptCompile Include="src\components\organisation\frmOrganisation.component.html" />
+    <TypeScriptCompile Include="src\components\organisation\frmOrganisation.component.ts" />
+    <TypeScriptCompile Include="src\models\vmModels.ts" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,41 @@
+<div class="app-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="app-toolbar">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="drawer.toggle()"> <mat-icon>menu</mat-icon></button>
+      <span>Electorate  </span><span class="mat-page-title">{{ pageTitle }}</span>
+     
+      <span class="app-spacer"></span>
+      <button mat-icon-button>
+        <mat-icon class="app-icon">notifications</mat-icon>
+      </button>
+      <button mat-icon-button (click)="logOff()"><mat-icon class="app-icon">logout</mat-icon></button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container color="primary"  class="app-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+
+    <mat-sidenav #drawer class="sidenav"  [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      
+      <mat-nav-list>
+        <a mat-list-item routerLink="/organisastion" routerLinkActive="active"><mat-icon class="app-icon">business</mat-icon>Organisation</a>
+        <mat-divider></mat-divider>
+        <a mat-list-item routerLink="/ballot" routerLinkActive="active"><mat-icon class="app-icon">ballot</mat-icon>Ballot</a>
+        <mat-divider></mat-divider>
+        <a mat-list-item routerLink="/candidate" routerLinkActive="active" ><mat-icon class="app-icon">accessibility_new</mat-icon>Candidates</a>
+        <mat-divider></mat-divider>
+        <a mat-list-item routerLink="/voter" routerLinkActive="active"><mat-icon class="app-icon">supervisor_account</mat-icon>Voters</a>
+        <mat-divider></mat-divider>
+        <a mat-list-item routerLink="/pollingVoters" routerLinkActive="active" ><mat-icon class="app-icon">how_to_vote</mat-icon>Polling</a>
+        <mat-divider></mat-divider>
+        <a mat-list-item routerLink="/result" routerLinkActive="active" ><mat-icon class="app-icon">score</mat-icon>Results</a>
+        <mat-divider></mat-divider>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-loader></app-loader>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
